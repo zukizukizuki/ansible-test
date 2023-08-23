@@ -1,0 +1,21 @@
+---                    # YAML は ”---" から開始する
+all:                   # "all" グループの宣言
+  hosts:                 # "all" グループに含まれるホストに関する情報を定義する宣言
+  # コメントアウトしてる部分は例
+    # 管理対象ノード名:      管理対象ノードの情報を定義する宣言
+    #   ansible_host: IP アドレス
+    #   ansible_user: ユーザー名
+    #   ansible_password: パスワード
+    #   ansible_ssh_private_key_file: 秘密鍵の path
+    #   ansible_python_interpreter: Python インタープリターの path
+    #   ansible_port: ポート番号
+    test1:
+      ansible_host: 192.168.2.2
+      ansible_user: root
+      ansible_password: root
+      ansible_port: 443
+    test2:
+      ansible_host: 192.168.2.3
+      ansible_user: root
+      ansible_password: root
+      ansible_port: 443
