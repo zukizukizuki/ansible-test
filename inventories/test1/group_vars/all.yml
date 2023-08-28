@@ -1,5 +1,8 @@
 ---                    # YAML は ”---" から開始する
 all:                   # "all" グループの宣言
+  vars:                #　変数の宣言
+    ansible_user: root
+    ansible_password: root
   hosts:                 # "all" グループに含まれるホストに関する情報を定義する宣言
   # コメントアウトしてる部分は例
     # 管理対象ノード名:      管理対象ノードの情報を定義する宣言
@@ -11,11 +14,31 @@ all:                   # "all" グループの宣言
     #   ansible_port: ポート番号
     test1:
       ansible_host: 192.168.2.2
-      ansible_user: root
-      ansible_password: root
+      # ansible_user: root
+      # ansible_password: root
       ansible_port: 443
     test2:
       ansible_host: 192.168.2.3
-      ansible_user: root
-      ansible_password: root
+      # ansible_user: root
+      # ansible_password: root
       ansible_port: 443
+
+  children:
+    web:
+      hosts:
+        web1:
+          ansible_host: 192.168.111.102
+        web2:
+          ansible_host: 192.168.111.103
+        web3:
+          ansible_host: 192.168.111.104
+    mail:
+      hosts:
+        mail1:
+          ansible_host: 192.168.111.104
+    database:
+      hosts:
+        db1:
+          ansible_host: 192.168.111.105
+        db2:
+          ansible_host: 192.168.111.106
